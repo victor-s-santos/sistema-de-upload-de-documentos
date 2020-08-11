@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if doc.data %}
+            <div class="data">
+                {{ doc.data }}
+                <iframe src="{{ doc.documento.url }}" style="width:718px; height:700px;" frameborder="0">
+            </div>
+        {% endif %}
+        <h2>{{ doc.nome }}</h2>
+    </div>
+{% endblock %}

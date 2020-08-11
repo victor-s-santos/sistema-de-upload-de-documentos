@@ -1,0 +1,1 @@
+web: gunicorn mvpalfa.wsgi --log-file -

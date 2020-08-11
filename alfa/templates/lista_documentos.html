@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Lista de Documentos enviados</h2>
+    <div id="tabela_documentos">
+        <table class="table">
+            <thead>
+                <th>Título do documento</th>
+                <th>Link do documento</th>
+                <th>Data de Envio</th>
+                <th>Situação</th>
+            </thead>
+            <tbody>
+                {% for doc in docs %}
+                    <tr>
+                        <td>{{ doc.nome }}</td>
+                        <td><a href="{% url 'doc_detalhe' pk=doc.pk %}" class="btn btn-primary btn-sm">Detalhes</a></td>
+                        <td>{{ doc.data }}</td>
+                        {% if doc.trabalhado == True %}
+                        <td>Documento Trabalhado</td>
+                        {% else %}
+                        <td>Documento em Análise</td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
