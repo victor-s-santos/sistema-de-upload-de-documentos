@@ -3,7 +3,7 @@ from django.core import mail
 from django.shortcuts import render, redirect
 from .forms import RegisterForm
 
-corpo_email = 'Aviso automático, um novo usuário cadastrado no sistema.'
+corpo_email = 'Teste'
 
 def register(request):
     if request.method == "POST":
@@ -11,11 +11,11 @@ def register(request):
         if form.is_valid():
             form.save()
         messages.success(request, 'Usuário cadastrado com sucesso! Por favor, faça o Login para poder utilizar o sistema.')
-        mail.send_mail('Novo usuário cadastrado.',
+       """ mail.send_mail('Teste.',
                             corpo_email,
                             'contato@gmail.com',
                             ['victorsantos.py@gmail.com']
-                            )
+                            )"""
         return redirect('register')
     else:
         form = RegisterForm()
