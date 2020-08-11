@@ -11,11 +11,11 @@ def register(request):
         if form.is_valid():
             form.save()
         messages.success(request, 'Usuário cadastrado com sucesso! Por favor, faça o Login para poder utilizar o sistema.')
-        """mail.send_mail('Novo usuário cadastrado.',
+        mail.send_mail('Novo usuário cadastrado.',
                             corpo_email,
                             'contato@gmail.com',
                             ['victorsantos.py@gmail.com']
-                            )"""
+                            )
         return redirect('register')
     else:
         form = RegisterForm()
