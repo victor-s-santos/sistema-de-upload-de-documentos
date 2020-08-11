@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.core import mail
+#from django.core import mail
 from django.contrib.auth.decorators import login_required
 from .forms import DocumentosForm
 from .models import Documentos
@@ -14,11 +14,6 @@ def upload_documento(request):
 			post = form.save(commit=False)
 			post.user = request.user
 			post.save()
-			mail.send_mail('Novo documento no sistema!',
-                            corpo_email,
-                            'contato@jurisfai.com.br',
-                            ['victorsantos.py@gmail.com', 'victorsantos.py@gmail.com']
-                            )
 			return redirect('documentos_lista')
 	else:
 		form = DocumentosForm()
