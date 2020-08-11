@@ -1,0 +1,10 @@
+Olá, o seu usuário já se encontra disponível!
+
+Agradecemos a sua inscrição, utilizando o nome de usuário cadastrado já é possível submeter documentos à análise.
+Mais uma vez, muito obrigado pela confiança em nosso produto.
+
+Nome de usuário: {{ username }}
+Email: {{ email }}
+
+Atenciosamente,
+Equipe JurisfAI
