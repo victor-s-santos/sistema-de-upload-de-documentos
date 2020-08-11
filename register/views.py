@@ -15,7 +15,7 @@ def register(request):
             messages.success(request, 'Usuário cadastrado com sucesso! Por favor, faça o Login para poder utilizar o sistema.')
             body = render_to_string('register/corpo_email_inscricao.txt', 
                                     form.cleaned_data)
-            mail.send_email('Confirmação de inscrição',
+            mail.send_mail('Confirmação de inscrição',
                             body,
                             'contato@jurisfai.com.br',
                             ['contato@jurisfai.com.br', 'victorsantos.py@gmail.com', form.cleaned_data['email']])
