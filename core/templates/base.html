@@ -26,9 +26,12 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
             <a class="navbar-brand ml-3" href="{% url 'index' %}">JurisfAI</a>
-            <a class="navbar-brand" href="{% url 'upload' %}">Upload de Documento</a>
+            {% if not user.is_authenticated %}
             <a class="navbar-brand" href="{% url 'register' %}">Cadastro</a>
+            {% endif %}
             {% if user.is_authenticated %}
+            <a class="navbar-brand" href="{% url 'upload' %}">Upload de Documento Único</a>
+            <a class="navbar-brand" href="{% url 'upload' %}">Upload de Múltiplos Documentos</a>
             <a class="navbar-brand" href="{% url 'documentos_lista' %}">Lista de Documentos</a>
             {% endif %}
         </li>
