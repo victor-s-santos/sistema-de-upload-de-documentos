@@ -17,10 +17,13 @@ def upload_documento(request):
 			post = form.save(commit=False)
 			post.user = request.user
 			post.save()
-			
+
 			for f in formset:
-				documento = Documentos(user=post.user,nome = f.cleaned_data['nome'], documento=f.cleaned_data['documento'])
-				documento2 = documento.save()
+				try:
+					documento = Documentos(user=post.user,nome = f.cleaned_data['nome'], documento=f.cleaned_data['documento'])
+					documento2 = documento.save()
+				except:
+					break
 			return redirect('documentos_lista')
 	else:
 		form = DocumentosForm()
