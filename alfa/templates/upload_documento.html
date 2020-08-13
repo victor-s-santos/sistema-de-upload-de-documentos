@@ -3,12 +3,22 @@
 {% block content %}
 <div class="card">
     <h2 class="card-header">Upload de Documento</h2>
+        <!-- Info Alert -->
+        <div class="alert alert-info alert-dismissible fade show">
+            <strong>Importante! </strong>Os campos podem ficar vazios caso não haja documento à submeter.
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="card-body">
             <h5 class="card-title">Nome do Documento: {{ form.nome }}</h5>
             <p class="card-text">{{ form.documento }}</p>
-            {{ formset }}
+            {{ formset.management_form }}
+            {% for form in formset %}
+            <h5 class="card-title">Nome do Documento: {{ form.nome }}</h5>
+            <p class="card-text">{{ form.documento }}</p>
+            {% endfor %}
+            <!--{{ formset.as_table }}-->
         <button type="submit" class="btn btn-primary">Enviar documento</button>
     </form>
 </div>

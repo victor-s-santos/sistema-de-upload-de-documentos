@@ -23,7 +23,7 @@ def upload_documento(request):
 					documento = Documentos(user=post.user,nome = f.cleaned_data['nome'], documento=f.cleaned_data['documento'])
 					documento2 = documento.save()
 				except:
-					break
+					pass
 			return redirect('documentos_lista')
 	else:
 		form = DocumentosForm()
