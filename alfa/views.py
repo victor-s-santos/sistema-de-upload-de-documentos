@@ -9,7 +9,7 @@ corpo_email = 'Aviso automático, novo documento enviado. Um usuário acabou de 
 
 @login_required(login_url='/login')
 def upload_documento(request):
-	DocumentosFormset = modelformset_factory(Documentos, fields=('nome','documento',), extra=5)
+	DocumentosFormset = modelformset_factory(Documentos, fields=('nome','documento'), extra=5)
 	if request.method == 'POST':
 		form = DocumentosForm(request.POST, request.FILES)
 		formset = DocumentosFormset(request.POST or None, request.FILES or None)
@@ -17,18 +17,14 @@ def upload_documento(request):
 			post = form.save(commit=False)
 			post.user = request.user
 			post.save()
+			
 			for f in formset:
-				try:
-					documento = Documentos(user=post.user,nome = post.nome, doc=f.cleaned_data['documento'])
-					documento.save()
-					return redirect('documentos_lista')
-				except Exception as e:
-					break
-
-		return redirect('documentos_lista')
+				documento = Documentos(user=post.user,nome = f.cleaned_data['nome'], documento=f.cleaned_data['documento'])
+				documento2 = documento.save()
+			return redirect('documentos_lista')
 	else:
 		form = DocumentosForm()
-		formset = DocumentosFormset(queryset = Documentos.objects.filter(user=request.user))
+		formset = DocumentosFormset(queryset = Documentos.objects.none())
 	return render(request, 'upload_documento.html', {
 		'form': form,
 		'formset': formset
