@@ -1,5 +1,6 @@
-# MVP Alfa 
-- Este é o primeiro mvp do projeto que faz upload do pdf, e após a análise, retorna para o usuário o pdf discriminado.
+# Sistema de Envio de Documentos 
+- Este é um sistema que permite o cadastro do usuário, o usuário então pode fazer upload de arquivos pdf. Estes arquivos serão então tratados pela equipe admin, que possui acesso aos arquivos, e ao tratá-los, os arquivos serão enviados de volta. Todos os arquivos do usuário poderão ser acessados por ele a qualquer momento.
+- Neste sistema eu estudo a implementação de um sistema de envio de emails, assim como o uso do signals para a ocorrência de ações automáticas, relacionadas a eventos do sistema.  
 
 
 ## Como rodar:
@@ -16,14 +17,12 @@
 
 * Com o virtualenv ativo, vamos instalar o django:
 - pip install django==2.1
->Desta forma instalamos a versão 2.1 do django. Está versão é a mais estável
-<br />
+>Desta forma instalamos a versão 2.1 do django.
 
->Como não estou utilizando libs a não ser o django, é desnecessária a criação do requirement.txt
 <br />
 
 * Clone o repositório:
-- git clone https://github.com/JurisfAI/MVPAlfa.git
+- git clone https://github.com/victor-s-santos/document-upload.git
 
 - __Na raíz do repositório, rodar:__
     
