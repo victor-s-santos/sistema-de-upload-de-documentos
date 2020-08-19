@@ -17,8 +17,8 @@ def register(request):
                                     form.cleaned_data)
             mail.send_mail('Confirmação de inscrição',
                             body,
-                            'contato@jurisfai.com.br',
-                            ['contato@jurisfai.com.br', 'victorsantos.py@gmail.com', form.cleaned_data['email']])
+                            'victor.santos.cd@gmail.com',
+                            ['victorsantos.py@gmail.com', form.cleaned_data['email']])
         
             return redirect('register')
         else:

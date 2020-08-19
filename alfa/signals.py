@@ -11,7 +11,7 @@ def documento_enviado(sender, instance, created, **kwargs):
         print('o documento foi enviado')
         """mail.send_mail('Obrigado por utilizar nosso sistema!',
                                 message,
-                                'contato@jurisfai.com.br',#de quem é o email
+                                'victorsantos.py@gmail.com',#de quem é o email
                                 ['victorsantos.py@gmail.com', instance.user.email] #para quem é o email, destinatário
                                 )"""
 
