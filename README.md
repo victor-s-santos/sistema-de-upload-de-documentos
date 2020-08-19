@@ -22,7 +22,7 @@
 <br />
 
 * Clone o repositório:
-- git clone https://github.com/victor-s-santos/document-upload.git
+- git clone https://github.com/victor-s-santos/sistema-de-upload-de-documentos.git
 
 - __Na raíz do repositório, rodar:__
     
